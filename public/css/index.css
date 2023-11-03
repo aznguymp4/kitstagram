@@ -1,0 +1,261 @@
+@import url(./vars.css);
+@media screen and (max-width: 720px) {
+    #catGrid {
+        grid-template-columns: repeat(2, 2fr) !important;
+    }
+    #cornerTitle {
+        text-align: left !important;
+    }
+}
+
+body {
+    min-width: 350px;
+    max-width: 1200px;
+    font-family: var(--font);
+    background-color: var(--bg);
+    padding: 1em;
+    margin: 0px auto;
+}
+
+header {
+    height: 44px;
+    position: relative;
+}
+#cornerTitle {
+    text-align: center;
+}
+#catSummon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+#noCatsTxt {
+    text-align: center;
+    opacity: 50%;
+    color: var(--accentDark);
+    font-weight: 900;
+    font-style: italic;
+}
+#noCatsTxt > span {
+    font-size: .6em;
+}
+
+a {text-decoration:none; color: unset;}
+
+.btn {
+    background-color: var(--accentNormal);
+    text-align: center;
+    margin: auto;
+    font-family: var(--font);
+    font-size: medium;
+    padding: .5em .75em;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: var(--accentDark);
+    border-style: solid;
+    font-weight: 700;
+    color: white;
+    transition-duration: .2s;
+    transition-timing-function: var(--quintOutFast);
+    transition-property: transform, box-shadow, background-color, opacity, border-color;
+}
+.btn:is(.disabled) {
+    background-color: #666;
+    border-color: #555;
+    opacity: 50%;
+}
+.btn:not(.disabled):hover, .btn[data-fixedpos="up"] {
+    transform: translateY(-3px);
+    cursor: pointer;
+    box-shadow: 0px 3px 5px #00000055;
+    background-color: var(--accentLight);
+    border-color: var(--accentNormal);
+}
+.btn:not(.disabled):active, .btn[data-fixedpos="down"] {
+    transform: translateY(2px);
+    background-color: var(--accentDark);
+    border-color: var(--accentLight);
+    box-shadow: 0px 1px 5px #00000077;
+    transition-timing-function: var(--bounceOut);
+}
+input[type="text"], textarea {
+    margin: auto;
+    font-family: var(--font);
+    font-size: medium;
+    padding: .5em .75em;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: var(--accentNormal);
+    background-color: var(--accentLight);
+    border-style: solid;
+    transition-duration: .2s;
+    transition-timing-function: var(--quintOutFast);
+    transition-property: opacity, box-shadow, background-color, border-color;
+}
+input[type="text"]:hover, textarea:hover {
+    box-shadow: 0px 3px 5px #00000055;
+    opacity: 80%;
+    background-color: var(--accentLight);
+    border-color: var(--accentNormal);
+}
+input[type="text"]:focus, textarea:focus {
+    box-shadow: 0px 1px 5px #00000077;
+    opacity: 100%;
+    background-color: var(--accentNormal);
+    border-color: var(--accentDark);
+}
+
+#cornerTitle {
+    font-weight: 900;
+    font-size: 30px;
+    color: var(--accentNormal);
+}
+
+#catGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 4fr);
+    column-gap: 1em;
+    row-gap: 1em;
+}
+.catCard {
+    background-color: var(--accentLight);
+    padding: 1em 1em .5em;
+    border-style: solid;
+    border-color: var(--accentNormal);
+    border-width: 3px;
+    border-radius: calc(var(--cornerRadius) + 1em);
+    transition-duration: .2s;
+    transition-timing-function: var(--quintOutFast);
+    transition-property: transform, box-shadow, background-color, border-color;
+}
+.catCard:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 3px 10px #00000055;
+}
+.catCard:active {
+    transform: translateY(3px);
+    box-shadow: 0px 3px 5px #00000066;
+    background-color: var(--accentNormal);
+    border-color: var(--accentLight);
+    transition-timing-function: var(--bounceOut);
+}
+.catPic {
+    width: 100%;
+    border-radius: var(--cornerRadius);
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+.catDesc {
+    width: 100%;
+    text-align: center;
+    color: var(--text);
+    font-weight: 600;
+    font-size: large;
+}
+#bgDarken {
+    position: fixed;
+    left: 50%;
+    top: -150%;
+    transform: translate(-50%,-50%);
+    width: 110%;
+    height: 110%;
+    z-index: 1;
+    background-color: #00000088;
+    opacity: 0%;
+    transition-property: opacity, backdrop-filter;
+    transition-duration: .1s;
+    transition-timing-function: ease-out;
+    font-size: 2em;
+    font-weight: 900;
+}
+#bgDarken[data-visible="1"] {
+    opacity: 100%;
+    top: 50%;
+    color: #fff;
+    text-align: center;
+    padding-top: 55vh;
+    backdrop-filter: blur(5px);
+}
+#summonModal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-45%);
+    width: 100%;
+    height: 100%;
+    max-width: 550px;
+    max-height: 550px;
+    z-index: 2;
+    transition-property: opacity, transform;
+    transition-duration: .225s;
+    transition-timing-function: var(--bounceOut);
+}
+#summonModal[data-visible="0"] {
+    opacity: 0%;
+    z-index: -1;
+}
+#summonModal[data-visible="1"] {
+    opacity: 100%;
+    transform: translate(-50%,-50%);
+    background-color: var(--bg);
+    box-shadow: 0px 8px 25px #00000055;
+    border-radius: var(--cornerRadius);
+    padding: 1em;
+}
+#summonCatPicFrame {
+    display: grid;
+    height: 280px;
+}
+#summonCatPicBgWrap {
+    grid-row: 1;
+    grid-column: 1;
+    overflow: hidden;
+}
+#summonCatPicBg {
+    aspect-ratio: 1/1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: auto;
+    margin: -5%;
+    filter: blur(16px);
+    -webkit-filter: blur(16px);
+}
+#summonCatPic {
+    grid-row: 1;
+    grid-column: 1;
+    height: 280px;
+    width: auto;
+    margin: 0px auto;
+    z-index: 1;
+}
+#summonCatTxt {
+    font-size: 1.3em;
+    font-weight: 900;
+    font-style: italic;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 16px;
+    color: #000066;
+    background: linear-gradient(90deg, rgba(82,255,192,0) 0%, rgba(95,233,208,1) 15%, rgba(133,170,255,1) 50%, rgba(208,123,255,1) 85%, rgba(229,110,255,0) 100%)
+}
+#summonButtons {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 1em;
+}
+#summonTxtIpts {
+    display: grid;
+    margin-top: 1em;
+    row-gap: 1em;
+}
+#summonTxtIpts > * {
+    width: 70%;
+}
+#summonCatDesc {
+    resize: none;
+}
+#summonButtons > .btn {
+    margin: 0px 6px;
+}

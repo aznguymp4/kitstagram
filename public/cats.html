@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Kitstagram</title>
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../css/index.css">
+	<link rel="stylesheet" href="../css/cats.css">
+	<script defer src="../js/cats.js"></script>
+</head>
+
+<body>
+	<header>
+		<a href="/" id="back"><span id="backArrow">◀︎ </span></a>
+		<div id="cornerTitle">kitstagram</div>
+	</header>
+	<br>
+	<div id="catDetails">
+		<div id="left">
+			<div id="catPicBgWrapper">
+				<div id="catPicBg" style="background-image: url();"></div>
+			</div>
+			<img id="catPic" src="" alt="">
+		</div>
+		<div id="right">
+			<div>
+				<span id="catName" class="larger"></span> <span id="adoptTime" class="date">Adopted: Today at 9:41am</span>
+			</div>
+			<div id="catDesc"></div>
+			<br>
+			<div id="catVote">
+				<button class="btn voteBtn" id="upvoteBtn">▲</button>
+				<div id="voteBar">
+					<div id="voteBarFill"></div>
+				</div>
+				<button class="btn voteBtn" id="downvoteBtn">▼</button>
+				<div id="upvotes">0</div>
+				<div id="votePercent">0%</div>
+				<div id="downvotes">0</div>
+			</div>
+			<hr>
+			<div class="large">
+				<span id="commentCount">Comments・0</span>
+				<span id="replyToTxt">
+					<span id="replyToName"></span>
+					<button class="btn" id="cancelReply">Cancel Reply</button>
+				</span>
+			</div>
+			<div id="commentForm">
+				<input type="text" name="username" id="commentUsernameIpt" placeholder="Nickname" maxlength="32">
+				<input type="text" name="comment" id="commentIpt" placeholder="Comment here…" maxlength="160">
+				<button id="commentPostBtn" class="btn disabled">Post</button>
+			</div>
+			<br>
+			<div id="catComments">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

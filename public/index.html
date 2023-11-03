@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitstagram</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script defer src="js/index.js"></script>
+</head>
+
+<body>
+	<header>
+		<div id="cornerTitle" class="animate__animated animate__rubberBand">kitstagram</div>
+    <button class="btn" id="catSummon" href="">+ Summon Cat</button>
+	</header>
+  <br>
+  <div>
+    <h1 id="noCatsTxt">Searching for cats...</h1>
+    <div id="catGrid">
+    </div>
+  </div>
+  <div id="summonModal" data-visible="0">
+    <div id="summonCatTxt">Wild cat was summoned! 🪄</div>
+    <div id="summonCatPicFrame">
+      <div id="summonCatPicBgWrap">
+        <div id="summonCatPicBg" style="background-color: #555;"></div>
+      </div>
+      <img id="summonCatPic" src="" alt="">  
+    </div>
+    <div id="summonTxtIpts">
+      <input type="text" name="catName" id="summonCatNameIpt" placeholder="Cat Name" maxlength="32">
+      <textarea name="desc" id="summonCatDescIpt" placeholder="Description" rows="3" maxlength="160"></textarea>  
+    </div>
+    <div id="summonButtons">
+      <button id="summonModalBtnCancel" class="btn">Cancel</button>
+      <button id="summonModalBtnAdopt" class="btn disabled">Adopt!</button>
+    </div>
+  </div>
+  <div id="bgDarken" data-visible="0">Attempting to summon a cat...</div>
+</body>
+</html>
