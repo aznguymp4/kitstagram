@@ -1,11 +1,11 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-let db = require("./public/db.json")
+let db = require("./db.json")
 
 const updateDbJson = () => {
   console.log('Updating db.json...')
-  fs.writeFileSync(path.join(__dirname,'./public/db.json'), JSON.stringify(db))
+  fs.writeFileSync(path.join(__dirname,'./db.json'), JSON.stringify(db))
   console.log('Updated db.json!')
 }
 const return404 = (res, msg = "Page Not Found") => {
@@ -46,7 +46,7 @@ const server = http.createServer((req, res) => {
     }
     // Home Page
     if (req.method === "GET" && req.url === "/") {
-      const resBody = fs.readFileSync("./public/index.html");
+      const resBody = fs.readFileSync("./index.html");
       res.statusCode = 200;
       res.setHeader("Content-Type", "text/html");
       res.end(resBody);
@@ -56,7 +56,7 @@ const server = http.createServer((req, res) => {
     const ext = path.extname(req.url);
     if (req.method === "GET" && ext) {
       try {
-        const resBody = fs.readFileSync('.' + "/public" + req.url);
+        const resBody = fs.readFileSync('.' + req.url);
         res.statusCode = 200;
         if (ext === ".jpg" || ext === ".jpeg") {
           res.setHeader("Content-Type", "image/jpeg");
@@ -175,7 +175,7 @@ const server = http.createServer((req, res) => {
 
     // Get Specific Cat Page
     if(req.method === "GET" && req.url.startsWith('/cats')) {
-      const resBody = fs.readFileSync("./public/cats.html");
+      const resBody = fs.readFileSync("./cats.html");
       res.statusCode = 200;
       res.setHeader("Content-Type", "text/html");
       res.end(resBody);
